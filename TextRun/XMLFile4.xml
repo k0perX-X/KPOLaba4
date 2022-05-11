@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<house12>
+		<flat23 name="Иванов А.В." debt="1245.64" />
+		<flat28 name="Сидоров П.К." debt="1383.27" />
+	</house12>
+</root>

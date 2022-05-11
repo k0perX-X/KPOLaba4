@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<station street="ул.Авиаторов" company="Лидер">
+		<info brand="98" price="2850" />
+	</station>
+</root>
