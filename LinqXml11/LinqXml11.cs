@@ -40,9 +40,9 @@ namespace LinqXml11
             return names.Distinct().ToArray();
         }
 
-        public static string[]? LinqMethod(string xmlFilePath)
+        public static (string Key, int Count)[]? LinqMethod(string xmlFilePath)
         {
-            return XDocument.Load(xmlFilePath).Root?.DescendantsAndSelf().GroupBy(el => el.Name.LocalName).Select(el=> el.Key).ToArray();
+            return XDocument.Load(xmlFilePath).Root?.DescendantsAndSelf().GroupBy(el => el.Name.LocalName).Select(el=> (el.Key, el.Count())).ToArray();
         }
     }
 }

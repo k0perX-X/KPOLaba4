@@ -1,0 +1,339 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="5">
+        <TabControl x:Name="tabControl">
+            <TabItem Header="LinqXml1">
+                <Grid Background="#FFE5E5E5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap">
+                            Даны имена существующего текстового файла и
+                            создаваемого XML-документа. Создать XML-документ с
+                            корневым элементом root и элементами первого уровня
+                            line, каждый из которых содержит одну строку из исходного
+                            файла.
+                            </TextBlock>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="Существующий файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl1_1" 
+                                                     Title="Выбрать файл" 
+                                                     Filter="TXT files (*.txt)|*.txt" DefaultExt=""/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="Выводной XML файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl1_2" 
+                                                     CheckFileExists="False" 
+                                                     Title="Выбрать файл" 
+                                                     Filter="XML files (*.xml)|*.XML"/>
+                            </StackPanel>
+                            <Button Content="Выполнить" Click="Button_Click"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="LinqXml11">
+                <Grid Background="#FFE5E5E5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap">
+                            Дан XML-документ. Найти все различные имена
+                            его элементов и вывести каждое найденное имя вместе с
+                            числом его вхождений в документ. Имена элементов выводить 
+                            в порядке их первого вхождения.
+                            </TextBlock>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="XML файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl11" 
+                                                     Title="Выбрать файл" 
+                                                     Filter="XML files (*.xml)|*.XML"/>
+                            </StackPanel>
+                            <Button Content="Выполнить" Click="Button_Click_1"/>
+                            <TextBlock x:Name="TextBlock11" TextWrapping="Wrap" Text=""/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="LinqXml21">
+                <Grid Background="#FFE5E5E5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap">
+                            Дан XML-документ и строка S. В строке записано
+                            имя одного из некорневых элементов исходного документа.
+                            Удалить из документа все элементы первого уровня с именем S.
+                            </TextBlock>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="Входной XML файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl21_1" 
+                                                         Title="Выбрать файл" 
+                                                         Filter="XML files (*.xml)|*.XML"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="Выходной XML файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl21_2" 
+                                                         CheckFileExists="False"
+                                                         Title="Выбрать файл" 
+                                                         Filter="XML files (*.xml)|*.XML"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="S"/>
+                                <TextBox x:Name="textBox21" TextWrapping="Wrap" Text="" MinWidth="120"/>
+                            </StackPanel>
+                            <Button Content="Выполнить" Click="Button_Click_2"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="LinqXml31">
+                <Grid Background="#FFE5E5E5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap">
+                            Дан XML-документ и строки S1 и S2. В строке S1
+                            записано имя одного из элементов исходного документа,
+                            строка S2 содержит допустимое имя элемента XML. После
+                            каждого элемента первого уровня с именем S1 добавить элемент с именем S2. 
+                            Атрибуты и потомки добавленного элемента должны совпадать с атрибутами и 
+                            потомками предшествующего элемента
+                            </TextBlock>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="Входной XML файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl31_1" 
+                                                         Title="Выбрать файл" 
+                                                         Filter="XML files (*.xml)|*.XML"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="Выходной XML файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl31_2" 
+                                                         CheckFileExists="False"
+                                                         Title="Выбрать файл" 
+                                                         Filter="XML files (*.xml)|*.XML"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="S1"/>
+                                <TextBox x:Name="textBox31_1" TextWrapping="Wrap" Text="" MinWidth="120"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="S2"/>
+                                <TextBox x:Name="textBox31_2" TextWrapping="Wrap" Text="" MinWidth="120"/>
+                            </StackPanel>
+                            <Button Content="Выполнить" Click="Button_Click_3"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="LinqXml41">
+                <Grid Background="#FFE5E5E5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap">
+                            Дан XML-документ. Любой его элемент содержит
+                            либо набор дочерних элементов, либо текстовое представление 
+                            вещественного числа. Добавить к каждому элементу, содержащему 
+                            дочерние элементы, атрибут sum, равный сумме
+                            чисел, указанных в дочерних элементах. Сумма округляется
+                            до двух дробных знаков, незначащие нули не отображаются.
+                            Если ни один из дочерних элементов не содержит текстовое
+                            представление числа, то атрибут sum должен иметь значение 0.
+                            </TextBlock>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="Входной XML файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl41_1" 
+                                                     Title="Выбрать файл" 
+                                                     Filter="XML files (*.xml)|*.XML"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="Выходной XML файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl41_2" 
+                                                         CheckFileExists="False"
+                                                         Title="Выбрать файл" 
+                                                         Filter="XML files (*.xml)|*.XML"/>
+                            </StackPanel>
+                            <Button Content="Выполнить" Click="Button_Click_4"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="LinqXml51">
+                <Grid Background="#FFE5E5E5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap">
+                            Дан XML-документ. Любой его элемент содержит
+                            либо набор дочерних элементов, либо текстовое представление 
+                            некоторой даты, соответствующее стандарту XML. Изменить все 
+                            элементы, содержащие дату, следующим образом: добавить атрибут 
+                            year, содержащий значение года из
+                            исходной даты, и дочерний элемент day с текстовым значением, 
+                            равным значению дня из исходной даты, после чего
+                            удалить из обрабатываемого элемента исходную дату.
+                            </TextBlock>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="Входной XML файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl51_1" 
+                                                     Title="Выбрать файл" 
+                                                     Filter="XML files (*.xml)|*.XML"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="Выходной XML файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl51_2" 
+                                                     CheckFileExists="False" Title="Выбрать файл" 
+                                                     Filter="XML files (*.xml)|*.XML"/>
+                            </StackPanel>
+                            <Button Content="Выполнить" Click="Button_Click_5"/>
+                            <TextBlock TextWrapping="Wrap" Text=""/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="LinqXml61">
+                <Grid Background="#FFE5E5E5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap">
+                            Дан XML-документ с информацией о клиентах
+                            фитнес-центра. Образец элемента первого уровня:<LineBreak/>
+                            &lt;record&gt;<LineBreak/>
+                             &lt;id&gt;10&lt;/id&gt;<LineBreak/>
+                             &lt;date&gt;2000-05-01T00:00:00&lt;/date&gt;<LineBreak/>
+                             &lt;time&gt;PT5H13M&lt;/time&gt;<LineBreak/>
+                            &lt;/record&gt;<LineBreak/>
+                            Здесь id — код клиента (целое число), date — дата с информацией о годе и месяце, time — продолжительность занятий
+                            (в часах и минутах) данного клиента в течение указанного
+                            месяца. Преобразовать документ, изменив элементы первого
+                            уровня следующим образом:<LineBreak/>
+                            &lt;time id="10" year="2000" month="5"&gt;PT5H13M&lt;/time&gt;<LineBreak/>
+                            Порядок следования элементов первого уровня не изменять.
+                            </TextBlock>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="Входной XML файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl61_1" 
+                                                     Title="Выбрать файл" 
+                                                     Filter="XML files (*.xml)|*.XML"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="Выходной XML файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl61_2" 
+                                                     CheckFileExists="False" Title="Выбрать файл" 
+                                                     Filter="XML files (*.xml)|*.XML"/>
+                            </StackPanel>
+                            <Button Content="Выполнить" Click="Button_Click_6"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="LinqXml71">
+                <Grid Background="#FFE5E5E5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap">
+                            Дан XML-документ с информацией о ценах автозаправочных станций на бензин. Образец элемента первого
+                            уровня (смысл данных тот же, что и в LinqXml68):<LineBreak/>
+                            &lt;station street="ул.Авиаторов" company="Лидер"&gt;<LineBreak/>
+                                &lt;info brand="98" price="2850" /&gt;<LineBreak/>
+                            &lt;/station&gt;<LineBreak/>
+                            Преобразовать документ, выполнив группировку данных по
+                            маркам бензина, а в пределах каждой марки — по ценам 1
+                            литра бензина. Изменить элементы первого уровня следующим образом:<LineBreak/>
+                            &lt;b98&gt;<LineBreak/>
+                                &lt;p2850&gt;<LineBreak/>
+                                    &lt;info street="ул.Авиаторов" company="Лидер" /&gt;<LineBreak/>
+                                    ...<LineBreak/>
+                                &lt;/p2850&gt;<LineBreak/>
+                                ...<LineBreak/>
+                            &lt;/b98&gt;<LineBreak/>
+                            Имя элемента первого уровня должно иметь префикс b, после которого указывается марка бензина; имя элемента второго уровня должно иметь префикс p, после которого указывается цена 1 литра бензина. Элементы первого уровня
+                            должны быть отсортированы по убыванию марок бензина, а
+                            их дочерние элементы — по убыванию цен. Элементы
+                            третьего уровня, имеющие общего родителя, должны быть
+                            отсортированы в алфавитном порядке названий улиц, а для
+                            одинаковых улиц — в алфавитном порядке названий компаний.
+                            </TextBlock>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="Входной XML файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl71_1" 
+                                                     CheckFileExists="False" Title="Выбрать файл" 
+                                                     Filter="XML files (*.xml)|*.XML"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="Выходной XML файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl71_2" 
+                                                     CheckFileExists="False" Title="Выбрать файл" 
+                                                     Filter="XML files (*.xml)|*.XML"/>
+                            </StackPanel>
+                            <Button Content="Выполнить" Click="Button_Click_7"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="LinqXml81">
+                <Grid Background="#FFE5E5E5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap">
+                                Дан XML-документ с информацией о задолженности по оплате 
+                                коммунальных услуг. Образец элемента первого уровня 
+                                (смысл данных тот же, что и в LinqXml76, данные
+                                сгруппированы по номерам домов; в качестве имен элементов 
+                                первого уровня указываются номера домов, снабженные
+                                префиксом house, а в качестве имен элементов второго уровня —
+                                номера квартир, снабженные префиксом flat):<LineBreak/>
+                                &lt;house12&gt;<LineBreak/>
+                                    &lt;flat23 name="Иванов А.В." debt="1245.64" /&gt;<LineBreak/>
+                                    ...<LineBreak/>
+                                &lt;/house12&gt;<LineBreak/>
+                                Преобразовать документ, сохранив группировку данных по
+                                номеру дома, выполнив в пределах каждого дома группировку 
+                                по номеру подъезда и оставив сведения только о тех
+                                жильцах, размер задолженности которых не меньше среднего
+                                размера задолженности по данному подъезду. Изменить элементы 
+                                первого уровня следующим образом:<LineBreak/>
+                                &lt;house number="12"&gt;<LineBreak/>
+                                    &lt;entrance number="1" count="4" avr-debt="1136"&gt;<LineBreak/>
+                                        &lt;debt flat="23" name="Иванов А.В."&gt;1245.64&lt;/debt&gt;<LineBreak/>
+                                        &lt;debt flat="28" name="Сидоров П.К."&gt;1383.27&lt;/debt&gt;<LineBreak/>
+                                    &lt;/entrance&gt;<LineBreak/>
+                                    ...<LineBreak/>
+                                &lt;/house&gt;<LineBreak/>
+                                Атрибут count равен количеству задолжников в данном
+                                подъезде, атрибут avr-debt определяет среднюю задолженность 
+                                по данному подъезду в рублях (целое число), вычисленную по 
+                                следующей формуле: «суммарная задолженность
+                                в копейках»/(«количество задолжников»*100) (символ «/»
+                                обозначает операцию целочисленного деления). Элементы
+                                третьего уровня содержат сведения о тех жильцах, размер 
+                                задолженности которых не меньше величины avr-debt для
+                                данного подъезда. Элементы первого уровня должны быть
+                                отсортированы по возрастанию номеров домов, а их дочерние 
+                                элементы — по возрастанию номеров подъездов. Элементы третьего 
+                                уровня, имеющие общего родителя, должны
+                                быть отсортированы по возрастанию номеров квартир. Подъезды, в 
+                                которых отсутствуют задолжники, не отображаются.
+                            </TextBlock>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="Входной XML файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl81_1" 
+                                                     CheckFileExists="False" Title="Выбрать файл" 
+                                                     Filter="XML files (*.xml)|*.XML"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                <Label Content="Выходной XML файл"/>
+                                <local:SelectFileControl x:Name="SelectFileControl81_2" 
+                                                     CheckFileExists="False" Title="Выбрать файл" 
+                                                     Filter="XML files (*.xml)|*.XML"/>
+                            </StackPanel>
+                            <Button Content="Выполнить" Click="Button_Click_8"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

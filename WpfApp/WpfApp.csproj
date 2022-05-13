@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LinqXml11\LinqXml11.csproj" />
+    <ProjectReference Include="..\LinqXml1\LinqXml1.csproj" />
+    <ProjectReference Include="..\LinqXml21\LinqXml21.csproj" />
+    <ProjectReference Include="..\LinqXml31\LinqXml31.csproj" />
+    <ProjectReference Include="..\LinqXml41\LinqXml41.csproj" />
+    <ProjectReference Include="..\LinqXml51\LinqXml51.csproj" />
+    <ProjectReference Include="..\LinqXml61\LinqXml61.csproj" />
+    <ProjectReference Include="..\LinqXml71\LinqXml71.csproj" />
+    <ProjectReference Include="..\LinqXml81\LinqXml81.csproj" />
+  </ItemGroup>
+
+</Project>
